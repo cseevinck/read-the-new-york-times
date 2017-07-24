@@ -4,7 +4,7 @@
                     e.preventDefault();
 
                     var option = $("#search-result option:selected").val();
-                    var api_key= 'Place for your own API key.';
+                    var api_key= 'Place your own API key here.';
                      var api = "https://api.nytimes.com/svc/topstories/v2/" + option + ".json?api-key="+ api_key;
                             $.ajax({
                         url: api,
