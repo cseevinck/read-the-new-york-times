@@ -1,4 +1,4 @@
- $(document).ready(function () {
+ $( document ).ready(function(){
  	    $("#find-article").click(function (e) {
 
                     e.preventDefault();
