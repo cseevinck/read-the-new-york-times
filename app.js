@@ -1,5 +1,5 @@
       $(document).ready(function () {
-                var api_key = '80deeaf2386f4085831eb911e4ac9837';
+                var api_key = '';
                 var api = "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=" + api_key;
                 $.ajax({
                     url: api,
