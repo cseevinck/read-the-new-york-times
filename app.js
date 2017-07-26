@@ -5,16 +5,30 @@
                     url: api,
                     method: 'GET'
                 }).done(function (data) {
-                    var section = data.results[0].section;
-                    $("#section").html('<p class="right">' + section + '</p>');
-                    $('<hr>').insertBefore("#title");
+                    var results = data.results;
+                    for (var i = 0; i < results.length; i++) {
 
-                    var title = data.results[0].title;
-                    $("#title").html('<p>' + title + '</p>');
-                    var description = data.results[0].abstract;
-                    $("#desc").html('<p class="tm">' + description + '</p>');
-                    var result = data.results[0].multimedia[2].url;
-                    $("#image").html('<div class="img"><img src="' + result + '"></div>');
+                        $('<div/>', {
+                            html: '<p>' + results[i].section + '</p>',
+                            class: 'right'
+                        }).appendTo('.result-box');
+                        $('<hr>').appendTo('.result-box');
+                        $('<div/>', {
+                            html: '<p>' + results[i].title + '</p>'
+                        }).appendTo('.result-box');
+                        $('<div/>', {
+                            html: '<p>' + results[i].abstract + '</p>'
+                        }).appendTo('.result-box');
+//                        $('<div/>', {
+//                            html: '<div><img src="' + results[i].multimedia[1].url + '"></div>',
+//                            class: 'img'
+//                        }).appendTo('.result-box');
+                        $('<div/>', {
+                            html: '<div><a href="' + results[i].url + '">Read more ...</a></div>',
+                            class: 'read'
+                        }).appendTo('.result-box');
+
+                    }
 
                     $("#find-article").click(function (e) {
                         e.preventDefault();
@@ -24,16 +38,30 @@
                             url: api,
                             method: 'GET'
                         }).done(function (data) {
-                            var section = data.results[0].section;
-                            $("#section").html('<p class="right">' + section + '</p>');
-                            
-                            var title = data.results[0].title;
-                            $("#title").html('<p>' + title + '</p>');
-                            var description = data.results[0].abstract;
-                            $("#desc").html('<p class="tm">' + description + '</p>');
-                            var result = data.results[0].multimedia[2].url;
-                            $("#image").html('<div class="img"><img src="' + result + '"></div>');
-                        });
+                               var results = data.results;
+                    for (var i = 0; i < results.length; i++) {
+
+                        $('<div/>', {
+                            html: '<p>' + results[i].section + '</p>',
+                            class: 'right'
+                        }).appendTo('.result-box');
+                        $('<hr>').appendTo('.result-box');
+                        $('<div/>', {
+                            html: '<p>' + results[i].title + '</p>'
+                        }).appendTo('.result-box');
+                        $('<div/>', {
+                            html: '<p>' + results[i].abstract + '</p>'
+                        }).appendTo('.result-box');
+//                        $('<div/>', {
+//                            html: '<div><img src="' + results[i].multimedia[1].url + '"></div>',
+//                            class: 'img'
+//                        }).appendTo('.result-box');
+                        $('<div/>', {
+                            html: '<div><a href="' + results[i].url + '">Read more ...</a></div>',
+                            class: 'read'
+                        }).appendTo('.result-box');
+
+                    }                        });
                     });
                 });
             });
